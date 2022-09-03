@@ -1,8 +1,19 @@
 h1{
     text-align: center;
     background-color: grey;
-    color: white
+    color: white 
 }
 h2 {
     font-size: large;
+}
+table{
+    width: 100%;
+    margin: auto;
+    background-color: grey
+}
+th{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin: auto; 
+    border: solid black 1px;
 }
