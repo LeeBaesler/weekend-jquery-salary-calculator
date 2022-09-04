@@ -1,5 +1,7 @@
 $(onReady);
 
+let annualSalary = [];
+
 function onReady(){
     console.log("JQ and JS");
 
@@ -29,6 +31,23 @@ console.log(employeeFirstName, employeeLastName,employeeID,employeeTitle, employ
     $("#id").val("");
     $("#title").val("");
     $("#annualSalary").val("");
+
+    $('#annualSalary').append(
+        `<h3>Add multiple:</h3>
+        <input id="annualSalary" placeholder="Quantity"/>
+        <input id="colorIn" placeholder="Color"/>
+        <button id="addMultiple">Add Multiple</button>
+        <br/>
+        <br/>`)
+
+        $('#addMultiple').on('click', ()=>{
+            let annualSalary = $('#quantityIn').val();
+            let colorIn = $('#colorIn').val();
+            $('#quantityIn').val('');
+            $('#colorIn').val('');
+            addMultiple(quantIn, colorIn);
+        })
+
     }
     
 
@@ -42,9 +61,4 @@ function clickHandlers (){
 
     $("#tableBody").on("click", ".deleteButton", deleteEmployee)
 
-
 }
-
-
-
-
