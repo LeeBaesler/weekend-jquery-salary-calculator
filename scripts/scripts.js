@@ -7,8 +7,12 @@ function onReady(){
 }
 
 function clickHandlers (){
+   
     $("#addButton").on("click", addEmployee)
 
+    $("#tableBody").on("click", ".deleteButton", deleteEmployee)
+
+    $("#clearButton").on("click", clearAllEmployees);
 }
 
 
@@ -28,6 +32,18 @@ $("#tableBody").append(`
         <td>${employeeAnnualSalary}</td>
         <td><button class="deleteButton"> Delete</button></td>
     </tr>
-`)
+`);
+$("#firstName").val("");
+$("#lastName").val("");
+$("#id").val("");
+$("#title").val("");
+$("#annualSalary").val("");
 }
 
+function deleteEmployee (event){
+    $(event.target).closest('tr').remove()
+}
+
+function clearAllEmployees (){
+    $("#tableBody").empty()
+}
