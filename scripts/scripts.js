@@ -8,7 +8,10 @@ function onReady(){
 
 function clickHandlers (){
     $("#addButton").on("click", addEmployee)
+
 }
+
+
 function addEmployee (){
 const employeeFirstName =$("#firstName").val();
 const employeeLasttName =$("#lastName").val();
@@ -23,7 +26,8 @@ $("#tableBody").append(`
         <td>${employeeID}</td>
         <td>${employeeTitle}</td>
         <td>${employeeAnnualSalary}</td>
-        <td><button id="deleteButton"> Delete</button></td>
+        <td><button class="deleteButton"> Delete</button></td>
     </tr>
 `)
 }
+
