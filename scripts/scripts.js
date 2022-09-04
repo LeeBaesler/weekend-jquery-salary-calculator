@@ -5,6 +5,36 @@ function onReady(){
 
     clickHandlers ();
 }
+function addEmployee (){
+    let employeeFirstName =$("#firstName").val();
+    let employeeLastName =$("#lastName").val();
+    let employeeID =$("#id").val();
+    let employeeTitle =$("#title").val();
+    let employeeAnnualSalary=$("#annualSalary").val();
+    
+console.log(employeeFirstName, employeeLastName,employeeID,employeeTitle, employeeAnnualSalary)
+
+    $("#tableBody").append(`
+        <tr>
+            <td>${employeeFirstName}</td>
+            <td>${employeeLastName}</td>
+            <td>${employeeID}</td>
+            <td>${employeeTitle}</td>
+            <td>${employeeAnnualSalary}</td>
+            <td><button class="deleteButton"> Delete</button></td>
+        </tr>
+    `);
+    $("#firstName").val("");
+    $("#lastName").val("");
+    $("#id").val("");
+    $("#title").val("");
+    $("#annualSalary").val("");
+    }
+    
+
+function deleteEmployee (event){
+    $(event.target).closest('tr').remove()
+}
 
 function clickHandlers (){
    
@@ -12,38 +42,9 @@ function clickHandlers (){
 
     $("#tableBody").on("click", ".deleteButton", deleteEmployee)
 
-    $("#clearButton").on("click", clearAllEmployees);
+
 }
 
 
-function addEmployee (){
-const employeeFirstName =$("#firstName").val();
-const employeeLasttName =$("#lastName").val();
-const employeeID =$("#id").val();
-const employeeTitle =$("#title").val();
-const employeeAnnualSalary=$("#annualSalary").val();
 
-$("#tableBody").append(`
-    <tr>
-        <td>${employeeFirstName}</td>
-        <td>${employeeLasttName}</td>
-        <td>${employeeID}</td>
-        <td>${employeeTitle}</td>
-        <td>${employeeAnnualSalary}</td>
-        <td><button class="deleteButton"> Delete</button></td>
-    </tr>
-`);
-$("#firstName").val("");
-$("#lastName").val("");
-$("#id").val("");
-$("#title").val("");
-$("#annualSalary").val("");
-}
 
-function deleteEmployee (event){
-    $(event.target).closest('tr').remove()
-}
-
-function clearAllEmployees (){
-    $("#tableBody").empty()
-}
