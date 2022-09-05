@@ -1,23 +1,24 @@
 $(onReady);
 
-
-
 function onReady(){
+    
     console.log("JQ and JS");
 
-   const totalSalary = [];
+    clickHandlers ();
+
     
 
-    clickHandlers ();
 }
+const totalSalary = [];
+
 function addEmployee (){
     let employeeFirstName =$("#firstName").val();
     let employeeLastName =$("#lastName").val();
     let employeeID =Number($("#id").val());
     let employeeTitle =$("#title").val();
-    let employeeAnnualSalary=Number($("#annualSalary").val());
-console.log(employeeFirstName, employeeLastName,employeeID,employeeTitle, employeeAnnualSalary)
+    let employeeAnnualSalary=$("#annualSalary").val();
 
+    console.log(employeeFirstName, employeeLastName,employeeID,employeeTitle, employeeAnnualSalary)
 
     $("#tableBody").append(`
         <tr>
@@ -36,10 +37,21 @@ console.log(employeeFirstName, employeeLastName,employeeID,employeeTitle, employ
     $("#title").val("");
     $("#annualSalary").val("");
 
-   $("#totalSalary").append(`
-   <h3>${employeeAnnualSalary}</h3>
-    `) 
-    }
+const completeSalary = {
+
+    employeeAnnualSalary: employeeAnnualSalary,
+}
+
+totalSalary.push(completeSalary)
+console.log(`there are now ${totalSalary.length} annual`);
+
+for (let i=0; i<totalSalary.length; i++) {
+    console.log(`showing`, totalSalary[i]);
+    $("#totalSalary").append(`${totalSalary[i].employeeAnnualSalary}`)
+}
+
+}
+
 
 function deleteEmployee (event){
     $(event.target).closest('tr').remove()
