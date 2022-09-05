@@ -17,8 +17,12 @@ th{
 }
 td{
     text-align: center;
+    border: solid black;
 }
-
 h3{
     text-align: right
 }
+tbody{
+    background-color: white;
+}
+    
