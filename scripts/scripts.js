@@ -5,18 +5,19 @@ $(onReady);
 function onReady(){
     console.log("JQ and JS");
 
-    const totalSalary = [];
+   const totalSalary = [];
+    
 
     clickHandlers ();
 }
 function addEmployee (){
     let employeeFirstName =$("#firstName").val();
     let employeeLastName =$("#lastName").val();
-    let employeeID =$("#id").val();
+    let employeeID =Number($("#id").val());
     let employeeTitle =$("#title").val();
-    let employeeAnnualSalary=$("#annualSalary").val();
-
+    let employeeAnnualSalary=Number($("#annualSalary").val());
 console.log(employeeFirstName, employeeLastName,employeeID,employeeTitle, employeeAnnualSalary)
+
 
     $("#tableBody").append(`
         <tr>
@@ -26,9 +27,6 @@ console.log(employeeFirstName, employeeLastName,employeeID,employeeTitle, employ
             <td>${employeeTitle}</td>
             <td>${employeeAnnualSalary}</td>
             <td><button class="deleteButton"> Delete</button></td>
-            <br/>
-            <br/>
-            <br/>
             </tr>
     `);
 
@@ -38,10 +36,10 @@ console.log(employeeFirstName, employeeLastName,employeeID,employeeTitle, employ
     $("#title").val("");
     $("#annualSalary").val("");
 
-    
+   $("#totalSalary").append(`
+   <h3>${employeeAnnualSalary}</h3>
+    `) 
     }
-    
-    
 
 function deleteEmployee (event){
     $(event.target).closest('tr').remove()
@@ -55,6 +53,3 @@ function clickHandlers (){
 
 }
 
-function formSubmitHandler(){
-    let annualSalary = $("#totalSalary").val(); 
-}
