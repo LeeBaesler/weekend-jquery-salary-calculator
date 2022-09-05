@@ -9,7 +9,7 @@ function onReady(){
     
 
 }
-const totalSalary = [];
+let totalMonthlySalary = [];
 
 function addEmployee (){
     let employeeFirstName =$("#firstName").val();
@@ -17,6 +17,10 @@ function addEmployee (){
     let employeeID =Number($("#id").val());
     let employeeTitle =$("#title").val();
     let employeeAnnualSalary=$("#annualSalary").val();
+    let workingSalary = totalMonthlySalary *12;
+
+    totalMonthlySalary.($("#totalMonthlySalary").text(`${totalMonthlySalary}`));
+    
 
     console.log(employeeFirstName, employeeLastName,employeeID,employeeTitle, employeeAnnualSalary)
 
@@ -39,15 +43,15 @@ function addEmployee (){
 
 const completeSalary = {
 
-    employeeAnnualSalary: employeeAnnualSalary,
+    
 }
 
-totalSalary.push(completeSalary)
-console.log(`there are now ${totalSalary.length} annual`);
+totalMonthlySalary.push(completeSalary)
+console.log(`there are now ${totalMonthlySalary.length} annual`);
 
-for (let i=0; i<totalSalary.length; i++) {
-    console.log(`showing`, totalSalary[i]);
-    $("#totalSalary").append(`${totalSalary[i].employeeAnnualSalary}`)
+for (let i=0; i<totalMonthlySalary.length; i++) {
+    console.log(`showing`, totalMonthlySalary[i]);
+    $("#totalSalary").append(`${totalMonthlySalary[i].employeeAnnualSalary}`)
 }
 
 }
