@@ -51,7 +51,11 @@ function addEmployee (event){
 
    function updateMonthlyTotal() {
     let monthlyTotal = totalMonthlySalary /12;
-    $("#totalMonthlySalary").text(monthlyTotal.toFixed(2));
+    $("#totalMonthlySalary").text(monthlyTotal);
+
+    if (monthlyTotal > 20000) {
+        $("#totalMonthlySalary").css("color", "red");
+    }
 
    }
 
